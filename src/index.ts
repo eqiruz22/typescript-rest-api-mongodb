@@ -1,14 +1,21 @@
-import express, { Application, NextFunction,Request,Response } from "express"
+import express, { Application, NextFunction, Request, Response } from 'express'
+import { routes } from './routes'
+import { logger } from './utils/logger'
+import bodyParser from 'body-parser'
+import cors from 'cors'
+const app: Application = express()
+const port: Number = 8081
 
-const app:Application = express()
-const port:Number = 8081
-
-app.get("/", (req:Request,res:Response,next:NextFunction) => {
-    return res.status(200).json({
-        message:"Hello"
-    })
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors())
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', '*')
+  res.setHeader('Access-Control-Allow-Headers', '*')
+  next()
 })
-
-app.listen(port,() => {
-    console.log(`server running on port ${port}`)
+routes(app)
+app.listen(port, () => {
+  logger.info(`server running on port ${port}`)
 })
