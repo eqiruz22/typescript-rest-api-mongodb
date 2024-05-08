@@ -1,0 +1,13 @@
+#dependecies
+/node_modules
+
+#test
+/coverage
+
+#production
+/build
+/dist
+
+#misc
+DS_Store
+.package-lock.json
