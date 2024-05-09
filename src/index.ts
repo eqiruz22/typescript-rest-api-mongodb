@@ -3,6 +3,7 @@ import { routes } from './routes'
 import { logger } from './utils/logger'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import './utils/connectionDB'
 const app: Application = express()
 const port: Number = 8081
 
