@@ -11,3 +11,11 @@ export const UserRegisterValidation = (payload: UserInterface) => {
   })
   return schema.validate(payload)
 }
+
+export const CreateSessionValidation = (payload: UserInterface) => {
+  const schema = Joi.object({
+    email: Joi.string().required(),
+    password: Joi.string().required()
+  })
+  return schema.validate(payload)
+}

@@ -9,6 +9,7 @@ export const GetProductService = async () => {
   } catch (error: any) {
     logger.info('Cannot get data from database')
     logger.error(error)
+    throw error
   }
 }
 
@@ -22,6 +23,7 @@ export const GetProductID = async (id: string) => {
   } catch (error: any) {
     logger.info('Cannot get single data from database')
     logger.error(error)
+    throw error
   }
 }
 
@@ -32,6 +34,7 @@ export const CreateProductService = async (value: ProductInterface) => {
   } catch (error) {
     logger.info('Cannot create data product')
     logger.error(error)
+    throw error
   }
 }
 
