@@ -19,3 +19,10 @@ export const CreateSessionValidation = (payload: UserInterface) => {
   })
   return schema.validate(payload)
 }
+
+export const SessionRefreshToken = (payload: UserInterface) => {
+  const schema = Joi.object({
+    refreshToken: Joi.string().required()
+  })
+  return schema.validate(payload)
+}
